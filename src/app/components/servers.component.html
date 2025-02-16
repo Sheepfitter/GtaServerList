@@ -1,0 +1,20 @@
+<table class="table table-striped">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Country</th>
+    <th>Players</th>
+    <th>Status</th>
+  </tr>
+</thead>
+  <tbody>
+  <tr *ngFor="let server of servers">
+    <td>{{server.name}}</td>
+    <td>{{server.description}}</td>
+    <td>{{server.country}}</td>
+    <td>{{server.players}} / {{server.maxPlayers}}</td>
+    <td>{{server.status}}</td>
+  </tr>
+  </tbody>
+</table>
