@@ -1,0 +1,36 @@
+table {
+  background: #012B39;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 0.25em;
+  width: 75%;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  height: 40px;
+  padding: 0.25em 0.25em 0.25em 1em;
+}
+tbody tr:hover {
+  background: #014055;
+  cursor: pointer;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+td.thumbnail
+{
+  width: 50px;
+}
+#Offline td{
+  background: #364954;
+  color: gray;
+}

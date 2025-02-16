@@ -1,6 +1,7 @@
 <table class="table table-striped">
 <thead>
   <tr>
+    <th>Thumbnail</th>
     <th>Name</th>
     <th>Description</th>
     <th>Country</th>
@@ -9,7 +10,8 @@
   </tr>
 </thead>
   <tbody>
-  <tr *ngFor="let server of servers">
+  <tr id="{{server.status}}" *ngFor="let server of servers">
+    <td class="thumbnail"><img src="{{server.thumbnail}}"></td>
     <td>{{server.name}}</td>
     <td>{{server.description}}</td>
     <td>{{server.country}}</td>
