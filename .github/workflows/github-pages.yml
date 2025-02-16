@@ -14,15 +14,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
       - name: Install Dependencies
         run: npm ci
       - name: Build
-        run: npm run build -- --configuration production --base-href /${{ github.event.repository.name }}/
+        run: npm run build -- --configuration production --base-href /gta-server-list/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/${{ github.event.repository.name }}/'
+          path: 'dist/gta-server-list/browser/.'
   deploy:
     needs: build
     runs-on: ubuntu-latest
