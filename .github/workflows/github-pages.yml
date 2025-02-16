@@ -1,35 +1,37 @@
-name: Deploy to GitHub Pages
+name: GitHub Pages
 
 on:
   push:
     branches:
+      - main
       - master
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     permissions:
       contents: write
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: '16'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Angular project
-        run: npm run build -- --base-href https://${{  github.actor  }}.github.io/${{  github.event.repository.name  }}/
+      - name: Build Github Pages Angular Site
+        run: npm run build -- --base-href https://${{github.actor}}.github.io/${{github.event.repository.name}}/
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy
+        if: success()
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist/${{ github.event.repository.name }}
+          publish_dir: dist/${{github.event.repository.name}}
           enable_jekyll: true
