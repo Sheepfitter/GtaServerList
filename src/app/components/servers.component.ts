@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
+import {NgForOf} from '@angular/common';
 
 @Component({
-  imports: [],
+  imports: [NgForOf],
   selector: 'servers-list',
   templateUrl: './servers.component.html',
   styleUrl: 'servers.component.css'
